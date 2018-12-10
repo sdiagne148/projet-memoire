@@ -7,15 +7,15 @@ class SelectColor(models.Model):
     _name = "set.progressbar.color"
     _rec_name = 'color'
 
-    range_start = fields.Integer(string='Range From', required=True, help="Starting range")
-    range_stop = fields.Integer(string='Range To', required=True, help="Stop range")
+    range_start = fields.Integer(string='Plage de', required=True, help="Starting range")
+    range_stop = fields.Integer(string='A', required=True, help="Stop range")
     color = fields.Selection([('red', 'Rouge'), ('green', 'Vert'), ('yellow', 'Jaune'),
                              ('pink', 'Rose'), ('orange', 'Orange'),
                              ('light_green', 'Verte Claire'), ('grey', 'Gris'),
                               ('blue', 'Bleu'), ('purple', 'Violet'),
                               ('black', 'Noir'), ('brown', 'Brun')],
                              string='Couleur', required=True, default='red',
-                             help="Choose a color for selected range")
+                             help="Choisissez une couleur pour la gamme selectionnee")
 
     @api.multi
     def assign_progress_bar_color(self):
@@ -33,4 +33,4 @@ class SelectColor(models.Model):
     @api.constrains('range_start', 'range_stop')
     def check_range(self):
         if self.range_start > self.range_stop:
-            raise exceptions.ValidationError("Start range should be less than stop range")
+            raise exceptions.ValidationError("La plage de depart doit etre inférieure a la plage d'arret")

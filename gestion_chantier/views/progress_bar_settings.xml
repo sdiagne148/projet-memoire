@@ -41,13 +41,13 @@
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
               <p class="oe_view_nocontent_create">
-                Create a new range
+                Creer une nouvelle gamme
               </p><p>
-                Create a new range and assign a color for progress bar
+                Creer une nouvelle plage et attribuer une couleur pour la barre de progression
               </p>
             </field>
         </record>
-        <menuitem id="progress_bar_menu" name="Set Progressbar Color" parent="project.menu_project_config"
+        <menuitem id="progress_bar_menu" name="Couleur de la barre de progression" parent="project.menu_project_config"
                   action="set_progressbar_color"/>
 
     </data>
